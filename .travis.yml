@@ -7,42 +7,17 @@ node_js:
 git:
   depth: false
 
-
 branches:
   only:
-    - dev
-    - master
+    - tuts
 
 install:
-  - curl -sf https://up.apex.sh/install | sudo sh
-
-stages:
-  - dev
-  - production
-
-jobs:
-  include:
-  - stage : dev
-    if: branch = "dev" 
-    env:
-     - STAGE=dev
+  - curl -sf https://up.apex.sh/install | sudo sh   #installing apex up
      
-    deploy:
-      provider: script
-      script:
-        yarn;
-        up deploy $STAGE;
-      on:
-       branch: dev
-
-  - stage: production
-    if: branch = "master"
-    env:
-     - STAGE=production
-    deploy:
-      provider: script
-      script:
-        yarn;
-        up deploy $STAGE;
-      on:
-       branch: master
+deploy:
+  provider: script
+  script:
+     yarn;                       #install dependencies
+     up deploy                   # deploying your application to lambda
+     on:
+      all_branches: true
