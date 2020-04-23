@@ -12,12 +12,12 @@ branches:
     - tuts
 
 install:
-  - curl -sf https://up.apex.sh/install | sudo sh   #installing apex up
+  - curl -sf https://up.apex.sh/install | sudo sh   
      
 deploy:
   provider: script
   script:
-     yarn;                       #install dependencies
-     up deploy                   # deploying your application to lambda
+     yarn;                       
+     up deploy                  
      on:
       all_branches: true
