@@ -26,6 +26,7 @@ jobs:
     if: branch = "dev" 
     env:
      - STAGE=dev
+     
     deploy:
       provider: script
       script:
