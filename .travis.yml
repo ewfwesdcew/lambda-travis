@@ -20,4 +20,4 @@ deploy:
     yarn;                       
     up deploy                  
   on:
-   all_branches: true
+   branch: tuts
