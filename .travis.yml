@@ -29,7 +29,7 @@ jobs:
     deploy:
       provider: script
       script:
-        source ~/.bashrc;
+        .  ~/.bashrc;
         yarn;
         up deploy $STAGE;
       on:
@@ -41,7 +41,7 @@ jobs:
     deploy:
       provider: script
       script:
-        source ~/.bashrc;
+        . ~/.bashrc;
         yarn;
         up deploy $STAGE;
       on:
