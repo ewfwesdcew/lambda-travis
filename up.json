@@ -1,0 +1,7 @@
+{
+  "name": "lambda-travis",
+  "profile": "default",
+  "regions": [
+    "us-east-2"
+  ]
+}
