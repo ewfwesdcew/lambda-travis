@@ -25,6 +25,15 @@ jobs:
   - stage : dev
     if: branch = "dev" 
     script: echo 'export STAGE=dev' >> ~/.bashrc
+    deploy:
+      provider: script
+      script:
+        source ~/.bashrc;
+        yarn;
+        up deploy $STAGE;
+      on:
+       branch: dev
+
   - stage: production
     if: branch = "master"
     script: echo 'export STAGE=production' >> ~/.bashrc
@@ -35,4 +44,5 @@ jobs:
         source ~/.bashrc;
         yarn;
         up deploy $STAGE;
-
+      on:
+       branch: master
