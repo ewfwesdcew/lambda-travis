@@ -17,7 +17,7 @@ install:
 deploy:
   provider: script
   script:
-     yarn;                       
-     up deploy                  
-     on:
-      all_branches: true
+    yarn;                       
+    up deploy                  
+  on:
+   all_branches: true
