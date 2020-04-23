@@ -1,0 +1,14 @@
+{
+  "name": "travis-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Aabhusan",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\""
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
