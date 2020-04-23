@@ -24,8 +24,8 @@ jobs:
   include:
   - stage : dev
     if: branch = "dev" 
-    script: echo 'export STAGE=dev' >> ~/.bashrc
-
+    env:
+      - STAGE=dev
     deploy:
       provider: script
       script:
@@ -37,7 +37,8 @@ jobs:
   
   - stage: production
     if: branch = "master"
-    script: echo 'export STAGE=production' >> ~/.bashrc
+    env:
+      - STAGE=production
     deploy:
       provider: script
       script:
