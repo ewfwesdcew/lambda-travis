@@ -15,15 +15,13 @@ branches:
   only:
     - matrix
 
-install:
-  - curl -sf https://up.apex.sh/install | sudo sh
-
-
 
 jobs:
   include:
    - node_js: 10
      os: linux
+     install:
+        - curl -sf https://up.apex.sh/install | sudo sh
      deploy:
        provider: script
        script:
@@ -33,6 +31,8 @@ jobs:
          branch: matrix
    - node_js: 9
      os: osx
+     install:
+        - curl -sf https://up.apex.sh/install | sh
      deploy:
        provider: script
        script:
