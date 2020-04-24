@@ -1,8 +1,11 @@
-dist: ubuntu
 sudo: required
 language: node_js
 node_js:
   - 10
+  - 9
+os:
+  - linux
+  - osx
 
 git:
   depth: false
@@ -10,39 +13,38 @@ git:
 
 branches:
   only:
-    - dev
-    - master
+    - matrix
 
 install:
   - curl -sf https://up.apex.sh/install | sudo sh
 
-stages:
-  - dev
-  - production
+
 
 jobs:
   include:
-  - stage : dev
-    if: branch = "dev" 
-    env:
-      - STAGE=dev
-    deploy:
-      provider: script
-      script:
-        yarn;
-        up deploy $STAGE;
-      on:
-        branch: dev
+   - node_js: 10
+     os: linux
+     deploy:
+       provider: script
+       script:
+         yarn;
+         up deploy;
+       on:
+         branch: matrix
+   - node_js: 9
+     os: osx
+     deploy:
+       provider: script
+       script:
+         yarn;
+         up deploy;
+       on:
+         branch: matrix
   
-  - stage: production
-    if: branch = "master"
-    env:
-      - STAGE=production
-    deploy:
-      provider: script
-      script:
-        yarn;
-        up deploy $STAGE;
-      on:
-        branch: master
+  exclude:
+    - node_js: 10
+      os: osx
+    
+    - node_js: 9
+      os: linux
 
