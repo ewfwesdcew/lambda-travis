@@ -40,11 +40,13 @@ jobs:
          up deploy;
        on:
          branch: matrix
-jobs:
-  exclude:
-    - node_js: 10
-      os: osx
+
+
+# jobs:
+#   exclude:
+#     - node_js: 10
+#       os: osx
     
-    - node_js: 9
-      os: linux
+#     - node_js: 9
+#       os: linux
 
