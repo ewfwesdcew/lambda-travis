@@ -40,7 +40,7 @@ jobs:
          up deploy;
        on:
          branch: matrix
-  
+jobs:
   exclude:
     - node_js: 10
       os: osx
