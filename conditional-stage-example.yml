@@ -4,10 +4,6 @@ language: node_js
 node_js:
   - 10
 
-git:
-  depth: false
-
-
 branches:
   only:
     - dev
@@ -18,8 +14,7 @@ install:
 
 stages:
   - dev
-  - production
-
+  - production 
 jobs:
   include:
   - stage : dev
@@ -38,7 +33,7 @@ jobs:
     if: branch = "master"
     env:
      - STAGE=production
-    deploy:
+    deploy: 
       provider: script
       script:
         yarn;

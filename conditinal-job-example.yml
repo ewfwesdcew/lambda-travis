@@ -1,0 +1,37 @@
+dist: ubuntu
+sudo: required
+language: node_js
+node_js:
+  - 10
+
+branches:
+  only:
+    - dev
+    - master
+
+install:
+  - curl -sf https://up.apex.sh/install | sudo sh
+
+jobs:
+  include:
+  - if: branch = "dev" 
+    env:
+     - STAGE=dev
+    deploy:
+      provider: script
+      script:
+        yarn;
+        up deploy $STAGE;
+      on:
+       branch: dev
+
+  - if: branch = "master"
+    env:
+     - STAGE=production
+    deploy: 
+      provider: script
+      script:
+        yarn;
+        up deploy $STAGE;
+      on:
+       branch: master
