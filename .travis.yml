@@ -13,13 +13,15 @@ branches:
 jobs:
   include:
     - stage: dev
-      name: test1
+      name: "test1"
       script: echo "hello world from dev1"
-      name: test2
-    - script: echo "hello world from dev2"     
+      
+    - script: echo "hello world from dev2"
+      name: test2     
     
     - stage: prod
       name: test1
       script: echo "hello world from prod1"
-      name: test2
+      
     - script: echo "hello world from prod2"
+      name: test2
