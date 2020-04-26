@@ -1,15 +1,12 @@
 sudo: required
 language: node_js
+
 node_js:
   - 10
   - 9
 os:
   - linux
   - osx
-
-git:
-  depth: false
-
 
 branches:
   only:
@@ -20,33 +17,20 @@ jobs:
   include:
    - node_js: 10
      os: linux
-     install:
-        - curl -sf https://up.apex.sh/install | sudo sh
-     deploy:
-       provider: script
-       script:
-         yarn;
-         up deploy;
-       on:
-         branch: matrix
+     env:
+      stage=production
    - node_js: 9
      os: osx
-     install:
-        - curl -sf https://up.apex.sh/install | sh
-     deploy:
-       provider: script
-       script:
-         yarn;
-         up deploy;
-       on:
-         branch: matrix
+     env:
+      stage=dev
 
+script:
+  echo "hello world from the $stage"  
 
-# jobs:
-#   exclude:
-#     - node_js: 10
-#       os: osx
-    
-#     - node_js: 9
-#       os: linux
+jobs:
+  exclude:
+    - node_js: 10
+      os: osx
+    - node_js: 9
+      os: linux
 
