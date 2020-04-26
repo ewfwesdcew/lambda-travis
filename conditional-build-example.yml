@@ -24,6 +24,6 @@ deploy:
       
         if: branch = "master"
         env:
-         - STAGE=production
+         - STAGE=producti
         yarn;
         up deploy $STAGE;
