@@ -15,11 +15,18 @@ branches:
 
 jobs:
   include:
-   - node_js: 10
+   - name: v1 
+     node_js: 10
      os: linux
      script:
         echo "hello world from the node-10 and linux"
-   - node_js: 9
+   - name: v2
+     node_js: 9
      os: osx
      script:
         echo "hello world from the node-9 and apple"  
+  exclude:
+   - node_js: 10
+     os: osx
+   - node_js: 9
+     os: linux
