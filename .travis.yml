@@ -4,30 +4,15 @@ language: node_js
 node_js:
   - 10
   - 9
-os:
-  - linux
-  - osx
+  - 8
+  - 7
+  - 6
 
 branches:
   only:
     - matrix
 
+script:
+  echo "hello world"
 
-jobs:
-  include:
-   - name: v1 
-     node_js: 10
-     os: linux
-     script:
-        echo "hello world from the node-10 and linux"
-   - name: v2
-     node_js: 9
-     os: osx
-     script:
-        echo "hello world from the node-9 and apple"  
-jobs:  
-  exclude:
-   - node_js: 10
-     os: osx
-   - node_js: 9
-     os: linux
+
