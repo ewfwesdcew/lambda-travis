@@ -19,14 +19,14 @@ jobs:
      os: linux
      env:
       stage=production
+     script:
+        echo "hello world from the $stage"
    - node_js: 9
      os: osx
      env:
       stage=dev
-
-script:
-  echo "hello world from the $stage"  
-
+     script:
+        echo "hello world from the $stage"  
 jobs:
   exclude:
     - node_js: 10
