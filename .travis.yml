@@ -19,6 +19,6 @@ branches:
     - matrix
 
 script:
-  echo "hello world"
+  echo "hello world from devops tutorials"
 
 
